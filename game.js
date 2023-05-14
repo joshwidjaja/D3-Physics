@@ -17,9 +17,24 @@ class Page3 extends Phaser.Scene {
 }
 
 class Stage1 extends PhysicsMap {
+    /*init(data) {
+        this.rect = data.rect;
+        this.physicsContainer = data.physicsContainer;
+        this.canDrag = data.canDrag;
+        this.noDrag = data.noDrag;
+        this.soysauce = data.soysauce;
+    }*/
+
     constructor() {
         super("stage1");
     }
+
+    /*create() {
+        this.matter.world.on('collisionstart', () => {
+            console.log('collision detected');
+            this.scene.start('page2');
+        });
+    }*/
 }
 
 class Stage2 extends PhysicsMap {
