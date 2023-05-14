@@ -37,7 +37,7 @@ class Stage3 extends PhysicsMap {
 const game = new Phaser.Game({
     width: 400,
     height: 300,
-    backgroundColor: "#000000",
+    backgroundColor: "#1b1464",
     physics: {
         default: 'matter',
         matter: {
