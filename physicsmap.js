@@ -1,4 +1,12 @@
 class PhysicsMap extends Phaser.Scene {
+    init(data) {
+        this.rect = data.rect;
+        this.physicsContainer = data.physicsContainer;
+        this.canDrag = data.canDrag;
+        this.noDrag = data.noDrag;
+        this.soysauce = data.soysauce;
+    }
+
     preload() {
         this.load.image('soysauce', 'syoyu.png');
     }
@@ -7,32 +15,33 @@ class PhysicsMap extends Phaser.Scene {
         this.matter.world.setBounds();
 
         // wall
-        this.matter.add.rectangle(200, 200, 150, 200, {
+        this.rect = this.matter.add.rectangle(200, 200, 150, 200, {
             isStatic: true,
             chamfer: { radius: 20}
         });
 
         // creates container
-        const container = this.add.container(330, 200);
-        container.setSize(100, 50);
+        const container = this.add.container(330, 250)
+            .setSize(100, 50);
 
-        const physicsContainer = this.matter.add.gameObject(container);
+        this.physicsContainer = this.matter.add.gameObject(container)
+            .setStatic(true)
 
-        const canDrag = this.matter.world.nextGroup();
+        this.canDrag = this.matter.world.nextGroup();
 
-        const noDrag = this.matter.world.nextGroup();
+        this.noDrag = this.matter.world.nextGroup();
 
-        this.matter.add.image(100, 100, 'soysauce', null)
+        this.soysauce = this.matter.add.image(50, 100, 'soysauce', null)
             .setScale(0.1)
-            .setBounce(0.9)
-            .setCollisionGroup(canDrag)
+            .setBounce(0.6)
+            .setCollisionGroup(this.canDrag)
 
         // from filter demo
         this.matter.add.mouseSpring({
             length: 1,
             stiffness: 0.6,
             collisionFilter: {
-                group: canDrag,
+                group: this.canDrag,
             } 
         });
     }
