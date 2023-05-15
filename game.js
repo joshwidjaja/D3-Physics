@@ -17,27 +17,12 @@ class Page3 extends Phaser.Scene {
 }
 
 class Stage1 extends PhysicsMap {
-    /*init(data) {
-        this.rect = data.rect;
-        this.physicsContainer = data.physicsContainer;
-        this.canDrag = data.canDrag;
-        this.noDrag = data.noDrag;
-        this.soysauce = data.soysauce;
-    }*/
-
     constructor() {
         super("stage1");
     }
 
     onEnter() {
-        /*const container = this.add.container(330, 250)
-            .setSize(100, 50);
-
-        this.physicsContainer = this.matter.add.gameObject(container)
-            .setStatic(true)*/
-
         this.physicsContainer.setOnCollide(() => {
-            console.log("collided");
             this.scene.start('page2');
         });
     }
@@ -46,6 +31,19 @@ class Stage1 extends PhysicsMap {
 class Stage2 extends PhysicsMap {
     constructor() {
         super("stage2");
+    }
+
+    onEnter() {
+        this.physicsContainer.setOnCollide(() => {
+            this.scene.start('page3');
+        });
+
+        this.physicsContainer.setCollidesWith(this.noDrag);
+
+        this.musha = this.matter.add.image(200, 100, 'musha', null)
+            .setScale(1)
+            .setBounce(0.4)
+            .setCollisionGroup(this.noDrag)
     }
 }
 
@@ -58,7 +56,7 @@ class Stage3 extends PhysicsMap {
 const game = new Phaser.Game({
     width: 400,
     height: 300,
-    backgroundColor: "#1b1464",
+    backgroundColor: "#d4dfe8",
     physics: {
         default: 'matter',
         matter: {
@@ -69,5 +67,5 @@ const game = new Phaser.Game({
             debugBodyColor: 0xffffff,
         },
     },
-    scene: [Stage1, Page1, Page2, Stage2, Page3, Stage3],
+    scene: [Stage2, Page1, Stage1, Page2, Page3, Stage3],
 });

@@ -9,6 +9,7 @@ class PhysicsMap extends Phaser.Scene {
 
     preload() {
         this.load.image('soysauce', 'syoyu.png');
+        this.load.image('musha', 'Samurai.png');
     }
 
     create() {
@@ -52,7 +53,7 @@ class PhysicsMap extends Phaser.Scene {
         console.warn('This PhysicsMap did not implement onEnter():', this.constructor.name);
     }
 
-    getPhysicsContainer() {
+    /*getPhysicsContainer() {
         return this.physicsContainer;
-    }
+    }*/
 }
