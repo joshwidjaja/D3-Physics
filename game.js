@@ -29,12 +29,18 @@ class Stage1 extends PhysicsMap {
         super("stage1");
     }
 
-    /*create() {
-        this.matter.world.on('collisionstart', () => {
-            console.log('collision detected');
+    onEnter() {
+        /*const container = this.add.container(330, 250)
+            .setSize(100, 50);
+
+        this.physicsContainer = this.matter.add.gameObject(container)
+            .setStatic(true)*/
+
+        this.physicsContainer.setOnCollide(() => {
+            console.log("collided");
             this.scene.start('page2');
         });
-    }*/
+    }
 }
 
 class Stage2 extends PhysicsMap {

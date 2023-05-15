@@ -44,5 +44,15 @@ class PhysicsMap extends Phaser.Scene {
                 group: this.canDrag,
             } 
         });
+
+        this.onEnter();
+    }
+
+    onEnter() {
+        console.warn('This PhysicsMap did not implement onEnter():', this.constructor.name);
+    }
+
+    getPhysicsContainer() {
+        return this.physicsContainer;
     }
 }
