@@ -38,12 +38,12 @@ class Stage2 extends PhysicsMap {
             this.scene.start('page3');
         });
 
-        this.physicsContainer.setCollidesWith(this.noDrag);
-
         this.musha = this.matter.add.image(200, 100, 'musha', null)
             .setScale(1)
             .setBounce(0.4)
-            .setCollisionGroup(this.noDrag)
+            .setCollisionCategory(this.noDrag)
+
+        this.physicsContainer.setCollidesWith(this.noDrag);
     }
 }
 
