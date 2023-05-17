@@ -17,6 +17,7 @@ Experience requirements:
 Asset sources:
 - [OpenClipart-Vectors](https://pixabay.com/vectors/asian-bottle-chinese-cuisine-food-1294266/)
 - RPG Maker 2000 RTP
+- Banana by [Norbert Kucsera](https://thenounproject.com/icon/banana-101290/)
 
 Code sources:
 - Code demos from phaser.io:

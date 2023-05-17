@@ -4,22 +4,19 @@ class PhysicsMap extends Phaser.Scene {
         this.physicsContainer = data.physicsContainer;
         this.canDrag = data.canDrag;
         this.noDrag = data.noDrag;
+        this.player = data.player;
+        this.object = data.object;
         this.soysauce = data.soysauce;
     }
 
     preload() {
         this.load.image('soysauce', 'syoyu.png');
         this.load.image('musha', 'Samurai.png');
+        this.load.image('banana', 'noun-banana-101290.png');
     }
 
     create() {
         this.matter.world.setBounds();
-
-        // wall
-        this.rect = this.matter.add.rectangle(200, 200, 150, 200, {
-            isStatic: true,
-            chamfer: { radius: 20}
-        });
 
         // creates container
         const container = this.add.container(330, 250)
@@ -29,13 +26,22 @@ class PhysicsMap extends Phaser.Scene {
             .setStatic(true)
 
         this.canDrag = this.matter.world.nextGroup();
-
         this.noDrag = this.matter.world.nextGroup();
 
-        this.soysauce = this.matter.add.image(50, 100, 'soysauce', null)
+        this.player = this.matter.world.nextCategory();
+        this.object = this.matter.world.nextCategory();
+
+        // wall
+        this.rect = this.matter.add.rectangle(200, 200, 150, 200, {
+            isStatic: true,
+            chamfer: { radius: 20}
+        });
+
+        this.soysauce = this.matter.add.image(50, 200, 'soysauce', null)
             .setScale(0.1)
             .setBounce(0.6)
             .setCollisionGroup(this.canDrag)
+            .setCollisionCategory(this.player)
 
         // from filter demo
         this.matter.add.mouseSpring({
