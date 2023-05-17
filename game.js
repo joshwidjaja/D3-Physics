@@ -58,20 +58,28 @@ class Stage3 extends PhysicsMap {
             .setScale(0.1)
             .setStatic(true)
 
-        this.musha = this.matter.add.image(50, 100, 'musha', null)
+        this.musha = this.matter.add.image(350, 100, 'musha', null)
             .setScale(1)
             .setBounce(0.4)
             .setCollisionGroup(this.noDrag)
             .setCollisionCategory(this.object)
 
+        this.soysauce.setX(350);
+
+        this.physicsContainer.setX(70);
         this.physicsContainer.setCollidesWith(this.object);
 
         this.physicsContainer.setOnCollide(() => {
             this.scene.start('end');
         })
         
-        this.wall = this.matter.add.gameObject(this.rect)
+        /*this.wall = this.matter.add.gameObject(this.rect)
             .setStatic(true)
+            .setBody({
+                type: 'rectangle',
+                width: 150,
+                height: 200,
+            })
             .setCollidesWith([this.player, this.object])
             .setOnCollide(() => {
                 //this.scene.start('scene3');
@@ -80,8 +88,7 @@ class Stage3 extends PhysicsMap {
 
                 this.musha.setX(50);
                 this.musha.setY(100);
-            })
-            
+            })*/
     }
 }
 
@@ -105,5 +112,5 @@ const game = new Phaser.Game({
             debugBodyColor: 0xffffff,
         },
     },
-    scene: [Stage3, Page1, Stage1, Page2, Stage2, Page3],
+    scene: [Page1, Stage1, Page2, Stage2, Page3, Stage3],
 });
