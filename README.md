@@ -1,23 +1,15 @@
 # D3-Physics
 Physics demo by Josh Widjaja
-Code requirements:
-- **4+ scenes based on `AdventureScene`**: Desktop, Folder, Bridge, FourKings
-- **2+ scenes *not* based on `AdventureScene`**: Intro, Error, Outro
-- **2+ methods or other enhancement added to the adventure game engine to simplify my scenes**:
-    - Enhancement 1: Added a 'Folder' button to the interface - it will take the player to and from the 'Game Folder' scene at any point in the game. 
-    - Enhancement 2: Added a global variable to keep track of the last scene visited before Folder (outerSceneKey).
-
 Experience requirements:
-- **4+ locations in the game world**: Desktop, Folder, Bridge, Castle 1F and 2F
-- **2+ interactive objects in most scenes**: Brian, Soy Sauce, Samurai
-- **Many objects have `pointerover` messages**: Most ingame objects
-- **Many objects have `pointerdown` effects**: Most ingame objects, except for non-renameable files
-- **Some objects are themselves animated**: Soy sauce object 'flees' on pointerover
+- **The game uses both continuous and discrete inputs from the player**: Mouse to advance pages, some objects can be dragged
+- **The player’s goal can only be achieved indirectly (by allowing the physics engine to move key objects into position/contact)**: Satisfied
+- **3+ physics-based gameplay scenes (possibly implemented with a single Phaser Scene subclass)**: 3 scenes that extend PhysicsMap
+- **Other scenes are used to separate and contextualize the gameplay scenes**: Pages and ending scene
 
 Asset sources:
 - [OpenClipart-Vectors](https://pixabay.com/vectors/asian-bottle-chinese-cuisine-food-1294266/)
-- RPG Maker 2000 RTP
-- Banana by [Norbert Kucsera](https://thenounproject.com/icon/banana-101290/)
+- RPG Maker 2000 RTP, sprite background removed in krita
+- Banana by [Norbert Kucsera](https://thenounproject.com/icon/banana-101290/), cropped in krita
 
 Code sources:
 - Code demos from phaser.io:
@@ -25,3 +17,5 @@ Code sources:
     - [Container Collision](https://labs.phaser.io/view.html?src=src/physics/matterjs/container%20collision.js)
     - [Drag Filter With Pointer](https://labs.phaser.io/view.html?src=src/physics/matterjs/drag%20filter%20with%20pointer.js)
 - [Data Flow in Phaser.io](https://anahit-gulian.medium.com/data-flow-in-phaser-io-6d00b76b713)
+
+[Demo](https://joshwidjaja.github.io/D3-Physics)
