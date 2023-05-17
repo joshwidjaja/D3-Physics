@@ -2,17 +2,35 @@ class Page1 extends Phaser.Scene {
     constructor() {
         super("page1");
     }
+
+    create() {
+        this.input.on('pointerdown', () => {
+            this.scene.start('stage1');
+        });
+    }
 }
 
 class Page2 extends Phaser.Scene {
     constructor() {
         super("page2");
     }
+
+    create() {
+        this.input.on('pointerdown', () => {
+            this.scene.start('stage2');
+        });
+    }
 }
 
 class Page3 extends Phaser.Scene {
     constructor() {
         super("page3");
+    }
+
+    create() {
+        this.input.on('pointerdown', () => {
+            this.scene.start('stage3');
+        });
     }
 }
 
@@ -96,6 +114,10 @@ class End extends Phaser.Scene {
     constructor() {
         super("end")
     }
+
+    create() {
+        
+    }
 }
 
 const game = new Phaser.Game({
@@ -112,5 +134,5 @@ const game = new Phaser.Game({
             debugBodyColor: 0xffffff,
         },
     },
-    scene: [Page1, Stage1, Page2, Stage2, Page3, Stage3],
+    scene: [Page1, Stage1, Page2, Stage2, Page3, Stage3, End],
 });
