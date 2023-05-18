@@ -4,6 +4,12 @@ class Page1 extends Phaser.Scene {
     }
 
     create() {
+        this.add.text(100, 100, "I.", {
+            fontSize: 80,
+            fontFamily: "Georgia",
+            color: "#000000",
+        });
+
         this.input.on('pointerdown', () => {
             this.scene.start('stage1');
         });
@@ -16,6 +22,12 @@ class Page2 extends Phaser.Scene {
     }
 
     create() {
+        this.add.text(100, 100, "II.", {
+            fontSize: 80,
+            fontFamily: "Georgia",
+            color: "#000000",
+        });
+
         this.input.on('pointerdown', () => {
             this.scene.start('stage2');
         });
@@ -28,6 +40,12 @@ class Page3 extends Phaser.Scene {
     }
 
     create() {
+        this.add.text(100, 100, "III.", {
+            fontSize: 80,
+            fontFamily: "Georgia",
+            color: "#000000",
+        });
+
         this.input.on('pointerdown', () => {
             this.scene.start('stage3');
         });
@@ -91,6 +109,7 @@ class Stage3 extends PhysicsMap {
             this.scene.start('end');
         })
         
+        // couldn't get this to work lol
         /*this.wall = this.matter.add.gameObject(this.rect)
             .setStatic(true)
             .setBody({
@@ -116,7 +135,15 @@ class End extends Phaser.Scene {
     }
 
     create() {
-        
+        this.add.text(100, 100, "click to\nrestart", {
+            fontSize: 60,
+            fontFamily: "Georgia",
+            color: "#000000",
+        });
+
+        this.input.on('pointerdown', () => {
+            this.scene.start('page1');
+        });
     }
 }
 
